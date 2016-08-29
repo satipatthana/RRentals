@@ -4,6 +4,11 @@ library(plotly)
 
 
 ui<-fluidPage(
+  tags$head(
+    tags$link(
+      rel="stylesheet",type="text/css",href="bootstrap.css"
+    )
+  ),
   tabsetPanel(
     tabPanel("R for Rentals",
       fluidRow(column(5,offset=5,h4("Home Rental Cash Flows"))),
@@ -51,8 +56,15 @@ ui<-fluidPage(
       )
     ),
     tabPanel("Description",
-             fluidRow(
-                      h5("This web application created in Shiny calculates cash flows, and a rate of return based on user specified inputs.  Defaut values are provided, and the user can adjust values as desired.  User inputs can be specified for different stages of ownership - namely, the Purchase stage, the Rental Operation stage, and the Sale stage.  In addition, tax rates can be specified.  After entering the data, pressing the Click for Cash Flows button will provide (a) a graphical depiction of annual cash flows for the period covering purchase to sale (hovering over the bars shows the actual value of the cash flow for the year), and (b) an Internal Rate of Return for the series of cash flows over the period.")
+             fluidPage(
+                      HTML('
+                           <h5>&nbsp;&nbsp;This web application created in Shiny calculates cash flows, and a rate of return based on user specified inputs.</h5>
+                           <h5>&nbsp;&nbsp;Defaut values are provided, and the user can adjust values as desired. </h5>
+                           <h5>&nbsp;&nbsp;After entering the data, pressing the Click for Cash Flows button will provide:</h5>
+                           <h5>&nbsp;&nbsp;(a) a graphical depiction of annual cash flows for the period covering purchase to sale, and</h5>
+                           <h5>&nbsp;&nbsp;(b) an Internal Rate of Return for the series of cash flows over the period.</h5>
+                           <h5>&nbsp;&nbsp;<i> Note: hovering over the bars shows the actual value of the cash flow for the year</i></h5>
+                           <a href="https://github.com/satipatthana/RRentals/blob/master/Rentals.md",target="_blank",<b>&nbsp;&nbsp;More Details</b></a>')
              )
     )))
 
